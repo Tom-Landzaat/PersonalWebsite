@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .nav-link{
+            background-color: rgb(21, 81, 63);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Subtle text shadow */
+            color: #fff
+        }
+        .project-header {
+            background-color: rgba(63, 81, 181, 1);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="images/Thomas_Resume.pdf" target="_blank">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>ESP32 Smart Aquarium Heater</h1>
+        </div>
+    </header>
+  
+
+    <!-- Project Details Section -->
+    <section class="py-5 bg-light" style="background: linear-gradient(360deg, rgb(249, 245, 224) 0%, rgb(248, 240, 189) 100%);">
+        <div class="container">
+    
+            <!-- Row 1: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/Project1/Sonoff.png" class="img-fluid rounded" alt="Sonoff">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>What</b></h3>
+                <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
+                    <p>This project was thought of when a friend's fish tank heater would over heat the tank for 
+                        their species of fish leading to them unplugging the heater everyday after heating for a few 
+                        hours as fish don't like big temperature changes. I thought I could come up with a handmade 
+                        solution for less than the cost of a new heater. For this project I used an ESP32-WROOM-32D, 
+                        a 4.7k resistor, 2 DS18B20 temperature sensors and a Sonoff S31 smart plug. </p>
+                </div>
+            </div>
+    
+            <!-- Row 2: Text on the Left, Image on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6 order-md-2">
+                    <img src="images/Project1/platformio.png" class="img-fluid rounded" alt="PlatformIO">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3><b>How</b></h3>
+                <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
+                    <p>For this project I first flashed the Sonoff S31 smart plug by disassembling the housing and soldering 
+                        jumper wires onto the internal esp8266 VCC, GND and SDA/SCL pads. Then I customized the Tasmota binary 
+                        with the help of platformIO and flashed the onboard microcontroller with the custom Tasmota software. 
+                        Then I connected the device to the wifi network and set its ip address as static. Next, I customized 
+                        the Tasmota software with platformIO for the ESP32 microcontroller and flashed the binary. Following 
+                        a similar process, I connected the ESP32 to the internet and connected the temperature sensors with a 
+                        4.7k pullup resistor. Next I configured the ESP32 to read temperature data and made a rule to average 
+                        both temperature readings and send the smart plug a HTTP signal to toggle ON or OFF based on the 
+                        current temperature. To tidy up the project I soldered all connections and put the ESP32 and connected
+                        wires in a box with ventilation to stay cool.</p>
+                </div>
+            </div>
+    
+            <!-- Row 3: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/Project1/esphome.png" class="img-fluid rounded" alt="ESPHome">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>Reflection</b></h3>
+                <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
+                    <p>After dropping the waterproof temperature sensors into the tank, plugging the ESP32 into a 
+                        5V brick and plugging the heater into the smart plug which was plugged into the wall, everything
+                         has worked great. This solution has proven to work well for low device setups and is resilient 
+                         against power and network outages as it will continually reconnect to the wifi when it comes 
+                         back up. As a failsafe, the plug will be on if wifi is down and can be manually toggled with a 
+                         button on the unit. For future projects I would look into using a Raspberry Pi or similar to act 
+                         as a MQTT broker which can facilitate communication between many nodes and controllers. Popular 
+                         software to run as an MQTT broker for the ESP family is ESPHome which allows users to view all 
+                         their sensors on one page and toggle devices such as smart plugs from a custom app rather than 
+                         IP access.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2024 Thomas Landzaat. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
