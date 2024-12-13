@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .nav-link{
+            background-color: rgb(21, 81, 63);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Subtle text shadow */
+            color: #fff
+        }
+        .project-header {
+            background-color: rgba(63, 81, 181, 1);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="images/Thomas_Resume.pdf" target="_blank">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>ATMega32U4 Rock Paper Scissors</h1>
+        </div>
+    </header>
+  
+
+    <!-- Project Details Section -->
+    <section class="py-5 bg-light" style="background: linear-gradient(360deg, rgb(249, 245, 224) 0%, rgb(248, 240, 189) 100%);">
+        <div class="container">
+    
+            <!-- Row 1: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/ProjectRPS/interrupts.png" class="img-fluid rounded" alt="interrupts">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>What</b></h3>
+                <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
+                    <p>
+                        This assembly project included two boards and was programmed in AVR assembly. The goal was to 
+                        play a game of rock paper scissors between the two devices, one for each user but with a little 
+                        twist. The twist was you shoot two hands at once, show your opponent and see their two hands, then 
+                        together pick which hand you wanted to throw. For example, if I threw <code>rock and paper</code> 
+                        and the opponent also chose <code>paper and rock</code>, I would throw paper that way I win if they 
+                        throw <code>rock</code>, or we tie if they throw <code>paper</code>.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Row 2: Text on the Left, Image on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6 order-md-2">
+                    <img src="images/ProjectRPS/transmithandchoice.png" class="img-fluid rounded" alt="USART receive">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3><b>How</b></h3>
+                <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
+                    <p> This was accomplished by installing jumper wires between the respective transmit and receive pins of each 
+                        board and setting up the same USART format. This includes the same baud rate, same number of stop bits 
+                        and data bits, what parity mode to use and for extra usability we enabled the interrupt when a receive was 
+                        complete. Upon successful transmit and receive we needed to encode the two hands from each player to the other. 
+                        To do this we declared rock = 0, paper = 1 and scissors = 2. For transmitting, we bit shifted the left hand by 
+                        two effectively storing the left hand in bits 3 and 2 while the right hand was added to the total resulting in 
+                        right hand being stored in bits 1 and 0. Once the other board received this data they could andi bits 1 and 0 for 
+                        the right hand and bit shift right by two then andi bits 1 and 0 to get the left hand. This resulted in efficient 
+                        USART communication. To transmit the hand choice a simple 1 or 0 would determine left or right hand.
+
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Row 3: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/ProjectRPS/RPSWin.png" class="img-fluid rounded" alt="Win screen">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>Reflection</b></h3>
+                <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
+                    <p>This project provided hands-on experience with USART protocol and a bigger multi-board assembly
+                        project. Being a fairly large project for our scale it came with some challenges such as register 
+                        overlap and needed to ensure registers were pushed and popped to the stack in all functions possible.
+                        Futhermore, we initially took a polling approach for button presses however, we realized we could not
+                        poll for both buttons and the timer/counter flag which served as a countdown on user input. Therefore an 
+                        easier future approach includes starting with a interrupt system for the push buttons. If I did this 
+                        project again I would try to keep the project more contained as I would be better planned and create 
+                        better naming systems and build more modular code blocks 
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2024 Thomas Landzaat. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

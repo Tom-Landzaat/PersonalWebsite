@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .nav-link{
+            background-color: rgb(21, 81, 63);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Subtle text shadow */
+            color: #fff
+        }
+        .project-header {
+            background-color: rgba(63, 81, 181, 1);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">My Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="images/Thomas_Resume.pdf" target="_blank">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-header">
+        <div class="container">
+            <h1>Matlab Frequency Response</h1>
+        </div>
+    </header>
+  
+
+    <!-- Project Details Section -->
+    <section class="py-5 bg-light" style="background: linear-gradient(360deg, rgb(249, 245, 224) 0%, rgb(248, 240, 189) 100%);">
+        <div class="container">
+    
+            <!-- Row 1: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/Project351/FIR.png" class="img-fluid rounded" alt="Data">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>What</b></h3>
+                <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
+                    <p>This project involved manually calculating the frequency response of an FIR filter and 
+                        comparing it to MATLAB's filter implementation. The goal was to validate theoretical 
+                        concepts by plotting and analyzing the filter's magnitude response for different input frequencies.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Row 2: Text on the Left, Image on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6 order-md-2">
+                    <img src="images/Project351/matlabcode.png" class="img-fluid rounded" alt="priority queue">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3><b>How</b></h3>
+                <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
+                    <p>The frequency response was calculated using the Fourier transform of the impulse response, 
+                        while MATLAB simulated sinusoidal inputs to compare the filter's response. Results were plotted 
+                        to confirm accuracy and to visualize the filter's selectivity.</p>
+                </div>
+            </div>
+    
+            <!-- Row 3: Image on the Left, Text on the Right -->
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6">
+                    <img src="images/Project351/MagResp.png" class="img-fluid rounded" alt="rehash function">
+                </div>
+                <div class="col-md-6">
+                    <h3><b>Reflection</b></h3>
+                <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
+                    <p>This project strengthened my understanding of FIR filters behavior and the respective MATLAB implementation. 
+                        Some initial challenges included improperly setting up the FIR filter leading to poor results. 
+                        More complex problems included handling transient effects and aligning results, which provided valuable 
+                        insights into the relationship between theory and real-world signal processing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2024 Thomas Landzaat. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
