@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>ESP32 Smart Aquarium Heater</h1>
+            <h1>FPGA VGA Driver</h1>
         </div>
     </header>
   
@@ -68,59 +68,45 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/Sonoff.png" class="img-fluid rounded" alt="Sonoff">
+                    <img src="images/ProjectVGA/Pixel.png" class="img-fluid rounded" alt="Sonoff">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p>This project was thought of when a friend's fish tank heater would over heat the tank for 
-                        their species of fish leading to them unplugging the heater everyday after heating for a few 
-                        hours as fish don't like big temperature changes. I thought I could come up with a handmade 
-                        solution for less than the cost of a new heater. For this project I used an ESP32-WROOM-32D, 
-                        a 4.7k resistor, 2 DS18B20 temperature sensors and a Sonoff S31 smart plug. </p>
+                    <p>This was tasked to me in my digital logic lab where the goal was displaying a png 
+                        on the display over VGA. This involved converting the png to a MIF file and 
+                        designing the logic necessary to display the image pixel by pixel.</p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/Project1/platformio.png" class="img-fluid rounded" alt="PlatformIO">
+                    <img src="images/ProjectVGA/Topview.png" class="img-fluid rounded" alt="PlatformIO">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>For this project I first flashed the Sonoff S31 smart plug by disassembling the housing and soldering 
-                        jumper wires onto the internal esp8266 VCC, GND and SDA/SCL pads. Then I customized the Tasmota binary 
-                        with the help of platformIO and flashed the onboard microcontroller with the custom Tasmota binary. 
-                        Then I connected the smart plug to the wifi network and set its ip address as static. Next, I customized 
-                        the Tasmota software with platformIO for the ESP32 microcontroller and flashed that binary. Following 
-                        a similar process, I connected the ESP32 to the internet and connected the temperature sensors with a 
-                        4.7k pullup resistor. Next I configured the ESP32 to read temperature data and made a rule to average 
-                        both temperature readings and send the smart plug a HTTP signal to toggle ON or OFF based on the 
-                        current temperature. This would look something like http://192.168.1.20/cm?cmnd=Power%20ON if you 
-                        wanted to send and ON command to the plug if its IP address was 192.168.1.20. To tidy up the project 
-                        I soldered all connections and put the ESP32 and connected wires in a box with ventilation to stay cool.</p>
+                    <p>This project required using read only memory (ROM) to store the MIF and designing 
+                        decoders and address converters to display the image in the correct part of the 
+                        screen. This program was completed in Quartus and blocks were made in SystemVerilog.</p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/esphome.png" class="img-fluid rounded" alt="ESPHome">
+                    <img src="images/ProjectVGA/RGB.png" class="img-fluid rounded" alt="ESPHome">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>After dropping the waterproof temperature sensors into the tank, plugging the ESP32 into a 
-                        5V brick and plugging the heater into the smart plug which was plugged into the wall, everything
-                         has worked great. This solution has proven to work well for low device setups and is resilient 
-                         against power and network outages as it will continually reconnect to the wifi when it comes 
-                         back up. As a failsafe, the plug will be on if wifi is down and can be manually toggled with a 
-                         button on the unit. For future projects I would look into using a Raspberry Pi or similar to act 
-                         as a MQTT broker which can facilitate communication between many nodes and controllers. Popular 
-                         software to run as an MQTT broker for the ESP family is ESPHome which allows users to view all 
-                         their sensors on one page and toggle devices such as smart plugs from a custom app rather than 
-                         IP access.
+                    <p>This assignment was very satisfying to complete as it felt very complex at the 
+                        time and took lots of understanding to execute. One challenge I faced along 
+                        the way was inverting the polarity of my mux which would determine if a certain 
+                        pixel was part of the image or part of the background. Needless to say this 
+                        caused lots of expected behavior and debugging and simulation in modelsim to 
+                        catch and fix.
                     </p>
                 </div>
             </div>

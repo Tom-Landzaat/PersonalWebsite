@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>ESP32 Smart Aquarium Heater</h1>
+            <h1>Coffee Shop Program (C++)</h1>
         </div>
     </header>
   
@@ -68,59 +68,58 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/Sonoff.png" class="img-fluid rounded" alt="Sonoff">
+                    <img src="images/ProjectCoffee/casemenu.png" class="img-fluid rounded" alt="Sonoff">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p>This project was thought of when a friend's fish tank heater would over heat the tank for 
-                        their species of fish leading to them unplugging the heater everyday after heating for a few 
-                        hours as fish don't like big temperature changes. I thought I could come up with a handmade 
-                        solution for less than the cost of a new heater. For this project I used an ESP32-WROOM-32D, 
-                        a 4.7k resistor, 2 DS18B20 temperature sensors and a Sonoff S31 smart plug. </p>
+                    <p>To actually implement this program, the Shop class was defined to be the primary 
+                        object on which most of the operations are performed. The Shop class has data 
+                        members that store all the important information about the Shop, including name, 
+                        phone, and address, as well as its Menu, and a history of its Orders. Menu is a 
+                        class itself, and each Menu object contains an integer representing the number of 
+                        things on the Menu, and a pointer to an array of Coffee objects. An object of the 
+                        Coffee class represents one single drink (like an Americano) with small, medium, 
+                        and large prices as data members. An Order class was also defined, which stores 
+                        information about a single transaction that was made, including the number of 
+                        drinks and total cost. Many methods were written to help these separate classes 
+                        interact and ultimately provide the overall desired functionality.</p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/Project1/platformio.png" class="img-fluid rounded" alt="PlatformIO">
+                    <img src="images/ProjectCoffee/classinit.png" class="img-fluid rounded" alt="PlatformIO">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>For this project I first flashed the Sonoff S31 smart plug by disassembling the housing and soldering 
-                        jumper wires onto the internal esp8266 VCC, GND and SDA/SCL pads. Then I customized the Tasmota binary 
-                        with the help of platformIO and flashed the onboard microcontroller with the custom Tasmota binary. 
-                        Then I connected the smart plug to the wifi network and set its ip address as static. Next, I customized 
-                        the Tasmota software with platformIO for the ESP32 microcontroller and flashed that binary. Following 
-                        a similar process, I connected the ESP32 to the internet and connected the temperature sensors with a 
-                        4.7k pullup resistor. Next I configured the ESP32 to read temperature data and made a rule to average 
-                        both temperature readings and send the smart plug a HTTP signal to toggle ON or OFF based on the 
-                        current temperature. This would look something like http://192.168.1.20/cm?cmnd=Power%20ON if you 
-                        wanted to send and ON command to the plug if its IP address was 192.168.1.20. To tidy up the project 
-                        I soldered all connections and put the ESP32 and connected wires in a box with ventilation to stay cool.</p>
+                    <p>The main focus of this assignment was to learn to implement classes in C++, by creating 
+                        basic implementations of private data members, public get/set methods, and the "Big 3" 
+                        (copy constructor, destructor, and assignment overload operator). This assignment 
+                        required you to use these principles to simulate a Coffee shop, allowing the user to 
+                        place and log orders, add items to the menu, keep track of revenue, and read and write 
+                        information to files. The "Big 3" were necessary for the classes that allocate dynamic 
+                        memory, including the Shop and Menu classes.</p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/esphome.png" class="img-fluid rounded" alt="ESPHome">
+                    <img src="images/ProjectCoffee/shopclass.png" class="img-fluid rounded" alt="ESPHome">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>After dropping the waterproof temperature sensors into the tank, plugging the ESP32 into a 
-                        5V brick and plugging the heater into the smart plug which was plugged into the wall, everything
-                         has worked great. This solution has proven to work well for low device setups and is resilient 
-                         against power and network outages as it will continually reconnect to the wifi when it comes 
-                         back up. As a failsafe, the plug will be on if wifi is down and can be manually toggled with a 
-                         button on the unit. For future projects I would look into using a Raspberry Pi or similar to act 
-                         as a MQTT broker which can facilitate communication between many nodes and controllers. Popular 
-                         software to run as an MQTT broker for the ESP family is ESPHome which allows users to view all 
-                         their sensors on one page and toggle devices such as smart plugs from a custom app rather than 
-                         IP access.
+                    <p>This program required a lot of proper planning to ensure the program implemented the 
+                        classes correctly. I could have saved some time debugging inconsistencies in the 
+                        output near the end of the project if I had a more thorough plan of how the 
+                        components would interact, however, from that I learned how to better plan and 
+                        better understand classes in C++. Furthermore, the dynamic memory allocation for 
+                        the orders being placed posed an extra challenge as we had to make sure to free 
+                        the memory and in the proper order, ie child then parent.
                     </p>
                 </div>
             </div>
