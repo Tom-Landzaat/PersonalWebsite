@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>DSi XL Repair</h1>
+            <h1>Coffee Shop Program (C++)</h1>
         </div>
     </header>
   
@@ -68,62 +68,58 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectDSI/mobo.png" class="img-fluid rounded" alt="Kicad circuit">
+                    <img src="images/ProjectCoffee/casemenu.png" class="img-fluid rounded" alt="Sonoff">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p> After finding my DSi XL in storage I wanted to boot it up and replay some of the games I 
-                        used to play. Unfortunately the battery was dead and the device was not charging when the 
-                        AC adapter was plugged in. This led me to test my electrical skills and determine if a bad 
-                        battery or faulty circuitry was causing the issues. 
-
-                    </p>
+                    <p>To actually implement this program, the Shop class was defined to be the primary 
+                        object on which most of the operations are performed. The Shop class has data 
+                        members that store all the important information about the Shop, including name, 
+                        phone, and address, as well as its Menu, and a history of its Orders. Menu is a 
+                        class itself, and each Menu object contains an integer representing the number of 
+                        things on the Menu, and a pointer to an array of Coffee objects. An object of the 
+                        Coffee class represents one single drink (like an Americano) with small, medium, 
+                        and large prices as data members. An Order class was also defined, which stores 
+                        information about a single transaction that was made, including the number of 
+                        drinks and total cost. Many methods were written to help these separate classes 
+                        interact and ultimately provide the overall desired functionality.</p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/ProjectDSI/diagram.png" class="img-fluid rounded" alt="Oshpark requirements">
+                    <img src="images/ProjectCoffee/classinit.png" class="img-fluid rounded" alt="PlatformIO">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>First I removed the screws on the case and visually inspected the components for damage. Everything on the 
-                        motherboard seemed fine, just a little dusty. The lithium-ion battery appeared to be getting slightly poofy, 
-                        however, which I recognized as signs of a “spicy pillow”. After properly disposing of the battery in accordance 
-                        with local regulation I purchased a new battery and tested the circuit in the meantime. With no battery plugged 
-                        in, I should expect a blinking orange light and 3.7V open circuit voltage on the battery terminals, however, I 
-                        found no voltage. Tracing back the vias for the charging circuit I passed through two fuses which I verified 
-                        to be functioning with a continuity test and a square module which I looked up to be a voltage regulator for 
-                        the charging circuit (5V to 3.7V). After probing the block for a while I got continuity across the block, however, it took a 
-                        fair bit of poking which I initially accounted for as some dirt on the pad. I also verified that 5V was coming 
-                        in across the two pins. As everything appeared to be working, I went back to the battery terminals and then 
-                        read 3.7V but then I shifted the DSi on accident and I read 0 volts again. After some back and forth 
-                        troubleshooting I determined the voltage regulator had a weak connection on the board (or a cracked solder joint)
-                        and when the charger was in the right position I would get continuity. After reflowing the solder joints, I 
-                        retested and got 3.7V at the output no matter the position of the charging cable.
-
-                    </p>
+                    <p>The main focus of this assignment was to learn to implement classes in C++, by creating 
+                        basic implementations of private data members, public get/set methods, and the "Big 3" 
+                        (copy constructor, destructor, and assignment overload operator). This assignment 
+                        required you to use these principles to simulate a Coffee shop, allowing the user to 
+                        place and log orders, add items to the menu, keep track of revenue, and read and write 
+                        information to files. The "Big 3" were necessary for the classes that allocate dynamic 
+                        memory, including the Shop and Menu classes.</p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectDSI/bootscreen.png" class="img-fluid rounded" alt="3d KiCad View">
+                    <img src="images/ProjectCoffee/shopclass.png" class="img-fluid rounded" alt="ESPHome">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>In this project, I learned some valuable skills about tracing circuit boards and using a 
-                        multimeter to verify expected behavior. In addition, I learned that when I have 
-                        inconsistent multimeter readings, it will never hurt to reflow the solder joint to ensure 
-                        a clean, non oxidized solder blob, especially on circuit boards that have been through 
-                        conditions and 15+ years of use. An improvement I recognize for the future is exactly this, 
-                        the multimeter rarely lies if you use it right and an inconsistent reading is likely 
-                        indicative of a poor connection.
+                    <p>This program required a lot of proper planning to ensure the program implemented the 
+                        classes correctly. I could have saved some time debugging inconsistencies in the 
+                        output near the end of the project if I had a more thorough plan of how the 
+                        components would interact, however, from that I learned how to better plan and 
+                        better understand classes in C++. Furthermore, the dynamic memory allocation for 
+                        the orders being placed posed an extra challenge as we had to make sure to free 
+                        the memory and in the proper order, ie child then parent.
                     </p>
                 </div>
             </div>
