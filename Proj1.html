@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>ESP32 Smart Aquarium Heater</h1>
+            <h1>SCARA Robotic Drawing Arm</h1>
         </div>
     </header>
   
@@ -68,59 +68,58 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/Sonoff.png" class="img-fluid rounded" alt="Sonoff">
+                    <img src="images/ProjectArm/internals.jpg" class="img-fluid rounded" alt="internals">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p>This project was thought of when a friend's fish tank heater would over heat the tank for 
-                        their species of fish leading to them unplugging the heater everyday after heating for a few 
-                        hours as fish don't like big temperature changes. I thought I could come up with a handmade 
-                        solution for less than the cost of a new heater. For this project I used an ESP32-WROOM-32D, 
-                        a 4.7k resistor, 2 DS18B20 temperature sensors and a Sonoff S31 smart plug. </p>
+                    <p>This Robotic Arm was a team based project for a Junior Design class. We were given certain engineering
+                        requirements such as affordability, speed, precision and SCARA topology. From there we were free
+                        to attempt any approach we liked and we chose servos to move the arm. The system takes in G-code inputs 
+                        or cursor movements and performs the respective movement. For this project we used 
+                        an ESP32-WROOM-32D, a custom PCB designed in KiCad, an adjustable 3A buck converter and 3D-printed
+                        arms, joints and an enclosure. </p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/Project1/platformio.png" class="img-fluid rounded" alt="PlatformIO">
+                    <img src="images/ProjectArm/PCB.jpg" class="img-fluid rounded" alt="PCB">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>For this project I first flashed the Sonoff S31 smart plug by disassembling the housing and soldering 
-                        jumper wires onto the internal esp8266 VCC, GND and SDA/SCL pads. Then I customized the Tasmota binary 
-                        with the help of platformIO and flashed the onboard microcontroller with the custom Tasmota binary. 
-                        Then I connected the smart plug to the wifi network and set its ip address as static. Next, I customized 
-                        the Tasmota software with platformIO for the ESP32 microcontroller and flashed that binary. Following 
-                        a similar process, I connected the ESP32 to the internet and connected the temperature sensors with a 
-                        4.7k pullup resistor. Next I configured the ESP32 to read temperature data and made a rule to average 
-                        both temperature readings and send the smart plug a HTTP signal to toggle ON or OFF based on the 
-                        current temperature. This would look something like http://192.168.1.20/cm?cmnd=Power%20ON if you 
-                        wanted to send and ON command to the plug if its IP address was 192.168.1.20. To tidy up the project 
-                        I soldered all connections and put the ESP32 and connected wires in a box with ventilation to stay cool.</p>
+                    <p> For this project we divided the project up into 6 blocks and assigned each team member 2 blocks. 
+                        From there, each team member made the documentation and validated the inputs and outputs for each block.
+                        Once validation was complete we began building and assembling the blocks which included a code/microcontroller 
+                        block, power delivery PCB block, Mechanical block and other smaller blocks. The arms were designed in Fusion360 
+                        and printed with PLA. The code block contained all the inverse kinematics calculations to convert the position we
+                        wanted the drawing utensil to be at, into angles of each servo (base and elbow servo). The code also included wifi 
+                        connectivity such that we could communicate over a port on the same WiFi network. For example, someone could run 
+                        our python GUI script and send g-codes on the port that the microcontroller was listening on. We extended this 
+                        principle to the drawing window where we allow users to sketch with their cursor; all cursor locations on the 
+                        window are translated to g-code commands and sent to the microcontroller in the same fashion.
+                    </p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/Project1/esphome.png" class="img-fluid rounded" alt="ESPHome">
+                    <img src="images/ProjectArm/GUI.jpg" class="img-fluid rounded" alt="GUI">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>After dropping the waterproof temperature sensors into the tank, plugging the ESP32 into a 
-                        5V brick and plugging the heater into the smart plug which was plugged into the wall, everything
-                         has worked great. This solution has proven to work well for low device setups and is resilient 
-                         against power and network outages as it will continually reconnect to the wifi when it comes 
-                         back up. As a failsafe, the plug will be on if wifi is down and can be manually toggled with a 
-                         button on the unit. For future projects I would look into using a Raspberry Pi or similar to act 
-                         as a MQTT broker which can facilitate communication between many nodes and controllers. Popular 
-                         software to run as an MQTT broker for the ESP family is ESPHome which allows users to view all 
-                         their sensors on one page and toggle devices such as smart plugs from a custom app rather than 
-                         IP access.
+                    <p> After completing the team project and achieving all engineering requirements we had a few ideas for what
+                        we might change if we were to start again from scratch. For starters, servos did okay in our application, 
+                        however, they have some slop between the gears which leads to more inaccuracies  the farther the arm is from 
+                        zero. Stepper motors and belts could have helped us in this scenario as we could reduce the weight on each 
+                        arm as well as changing the gearing ratio for adjusting speed and control. Other things we learned was that 
+                        documentation of each block and good communication with peers working on neighboring blocks is crucial for 
+                        seamless system integration. However, despite some challenges along the way, we as a team had a lot of fun in
+                        the design and testing of the arm and are very proud of the final product.
                     </p>
                 </div>
             </div>
@@ -130,7 +129,7 @@
     
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
-        <p>© 2024 Thomas Landzaat. All Rights Reserved.</p>
+        <p>© 2025 Thomas Landzaat. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

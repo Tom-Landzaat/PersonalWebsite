@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>FPGA VGA Driver</h1>
+            <h1>Battery Powered ESP32</h1>
         </div>
     </header>
   
@@ -68,45 +68,50 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectVGA/Pixel.png" class="img-fluid rounded" alt="Sonoff">
+                    <img src="images/ProjectBatteryESP32/topview.png" class="img-fluid rounded" alt="Sonoff">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p>This was tasked to me in my digital logic lab where the goal was displaying a png 
-                        on the display over VGA. This involved converting the png to a MIF file and 
-                        designing the logic necessary to display the image pixel by pixel.</p>
+                    <p>This was a team project for our Junior Design class where we were tasked with designing 
+                        a battery powered ESP32 that measured something and displayed it. Two other students 
+                        and myself worked together on this project and we decided to use a MPU-6050 to measure 
+                        acceleration and rotation. We chose to display the readings on a 16x2 LCD screen in real time.</p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/ProjectVGA/Topview.png" class="img-fluid rounded" alt="PlatformIO">
+                    <img src="images/ProjectBatteryESP32/kicad.png" class="img-fluid rounded" alt="PlatformIO">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>This project required using read only memory (ROM) to store the MIF and designing 
-                        decoders and address converters to display the image in the correct part of the 
-                        screen. This program was completed in Quartus and blocks were made in SystemVerilog.</p>
+                    <p>We used a 9V battery as our power source for the ESP32, however, the ESP32 ideally takes an 
+                        input of 5V so we designed a 5V LDO linear regulator circuit to take 9V in and output 5V. 
+                        From there it was a bunch of soldering, getting the power connected for the ESP32 then 
+                        connecting the sensor and LCD display. With all of our hardware setup, we used the arduino 
+                        IDE to program our ESP32 and display acceleration and rotation data on our LCD. Our final 
+                        design included a box to hold all of our components and power switch to toggle the power 
+                        for the ESP32.</p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectVGA/RGB.png" class="img-fluid rounded" alt="ESPHome">
+                    <img src="images/ProjectBatteryESP32/wiring.png" class="img-fluid rounded" alt="ESPHome">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>This assignment was very satisfying to complete as it felt very complex at the 
-                        time and took lots of understanding to execute. One challenge I faced along 
-                        the way was inverting the polarity of my mux which would determine if a certain 
-                        pixel was part of the image or part of the background. Needless to say this 
-                        caused lots of expected behavior and debugging and simulation in modelsim to 
-                        catch and fix.
+                    <p>One challenge we faced in the 5V voltage regulator circuit was the output voltage falling 
+                        below spec at higher current draws, even though the current draw was within spec. After 
+                        some testing we determined we need bigger capacitors on the input and output to smooth 
+                        the voltage which led to a much more consistent 5V output. Something we would use in the 
+                        future if redoing the project is a buck converter as they can be much more efficient 
+                        power wise which is very important for battery powered systems.
                     </p>
                 </div>
             </div>

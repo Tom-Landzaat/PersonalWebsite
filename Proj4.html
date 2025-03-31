@@ -56,7 +56,7 @@
     <!-- Project Header -->
     <header class="project-header">
         <div class="container">
-            <h1>Wumpus Board Game (C++)</h1>
+            <h1>FPGA VGA Driver</h1>
         </div>
     </header>
   
@@ -68,51 +68,45 @@
             <!-- Row 1: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectWumpus/classes.png" class="img-fluid rounded" alt="Sonoff">
+                    <img src="images/ProjectVGA/Pixel.png" class="img-fluid rounded" alt="Sonoff">
                 </div>
                 <div class="col-md-6">
                     <h3><b>What</b></h3>
                 <!--Provide a detailed explanation of what the project is about, its purpose, and who it is for.-->
-                    <p>This board game was the final project assigned in my C++ programming class and heavily 
-                        relied on using classes to control objects in the “cave” and be able to allow the user 
-                        to interact with said objects. The purpose of the game is to either move around the 
-                        cave and find the gold and safely escape or take out the Wumpus with bow and arrow. 
-                        The game will give you clues when you are nearby enemies or you can play the game 
-                        with the ability to see all objects on the map.</p>
+                    <p>This was tasked to me in my digital logic lab where the goal was displaying a png 
+                        on the display over VGA. This involved converting the png to a MIF file and 
+                        designing the logic necessary to display the image pixel by pixel.</p>
                 </div>
             </div>
     
             <!-- Row 2: Text on the Left, Image on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/ProjectWumpus/gamedisp.png" class="img-fluid rounded" alt="PlatformIO">
+                    <img src="images/ProjectVGA/Topview.png" class="img-fluid rounded" alt="PlatformIO">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3><b>How</b></h3>
                 <!--Describe how the project was accomplished, the tools and technologies used, and the overall process.-->
-                    <p>This was accomplished using classes and a hierarchy to determine the player’s proximity 
-                        to events. Most of the functions required to run the game are a part of the game class 
-                        and the hazards on the board inherit from the event class. This allows for efficient 
-                        code that handles nearby events in a routine way. The board is a dynamic 2D array and 
-                        every square has the opportunity to hold an event object, with these objects being the
-                         Wumpus, gold, stalactites or bats.</p>
+                    <p>This project required using read only memory (ROM) to store the MIF and designing 
+                        decoders and address converters to display the image in the correct part of the 
+                        screen. This program was completed in Quartus and blocks were made in SystemVerilog.</p>
                 </div>
             </div>
     
             <!-- Row 3: Image on the Left, Text on the Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="images/ProjectWumpus/makefile.png" class="img-fluid rounded" alt="ESPHome">
+                    <img src="images/ProjectVGA/RGB.png" class="img-fluid rounded" alt="ESPHome">
                 </div>
                 <div class="col-md-6">
                     <h3><b>Reflection</b></h3>
                 <!--Share insights, challenges faced, lessons learned, and potential improvements for the future.-->
-                    <p>This program was one of my first projects with many different c 
-                        files for each object. This project helped me learn how to efficiently manage many 
-                        files in a program (makefiles!) and some of the benefits like not overloading the 
-                        main program and increasing readability. This program took a lot of time to brainstorm 
-                        and troubleshoot issues with the gameplay, however, it was very fun and rewarding as 
-                        I have my own game I can play.
+                    <p>This assignment was very satisfying to complete as it felt very complex at the 
+                        time and took lots of understanding to execute. One challenge I faced along 
+                        the way was inverting the polarity of my mux which would determine if a certain 
+                        pixel was part of the image or part of the background. Needless to say this 
+                        caused lots of expected behavior and debugging and simulation in modelsim to 
+                        catch and fix.
                     </p>
                 </div>
             </div>
