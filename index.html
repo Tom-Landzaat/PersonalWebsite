@@ -20,8 +20,14 @@
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Subtle text shadow */
             color: #fff 
         }
+        .headr{
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+        }
         .about1{
-            background-color: #65abf5;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+        }
+        .proj{
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
         }
         .project-card {
             margin-bottom: 20px;
@@ -53,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="images/Thomas_Resume.pdf" target="_blank">Resume</a>
+                        <a class="nav-link" href="images/Thomas_Landzaat_Resume.pdf" target="_blank">Resume</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About Me</a>
@@ -70,14 +76,14 @@
     </nav>
 
     <!-- Header Section -->
-    <header class="text-white text-center py-5" style="background: linear-gradient(90deg, rgba(63, 81, 181, 1) 0%, rgba(33, 150, 243, 1) 100%);">
+    <header class="headr text-white text-center py-5" style="background: linear-gradient(90deg, rgba(63, 81, 181, 1) 0%, rgba(43, 140, 243, 1) 100%);">
         <div class="container">
             <h1>Thomas Landzaat Project Portfolio</h1>
         </div>
     </header>
 
     <!-- About Me Section -->
-    <section id="about" class="py-5 about1">
+    <section id="about" class="text-white py-5 about1" style="background: linear-gradient(90deg, rgba(63, 81, 181, 1) 0%, rgba(43, 140, 243, 1) 100%);">
         <div class="container">
             <h2 class="text-center">About Me</h2>
             <p class="text-center"><b>Senior in Electrical and Computer Engineering at Oregon State University.</b></p>
@@ -90,16 +96,17 @@
     <!-- Projects Section -->
     <section id="projects" class="py-5 bg-light" style="background: linear-gradient(360deg, rgba(63, 81, 181, 1) 0%, rgba(33, 150, 243, 1) 100%);">
         <div class="container">
-            <h2 class="text-center"><b>My Projects</b></h2>
+            <h2 class="proj text-center text-white mb-5"><b>My Projects</b></h2>
             <div class="row justify-content-center">
+                <!-- First Row -->
                 <!-- Project 1 -->
                 <div class="col-md-4">
                     <div class="card project-card">
-                        <img src="images/ProjectArm/Arm.jpg" class="card-img-top" alt="Project 1">
+                        <img src="images/ProjectVLSI/pnr.jpg" class="card-img-top" alt="Project 1">
                         <div class="card-body">
-                            <h5 class="card-title">Robotic Drawing Arm</h5>
-                            <p class="card-text">Robotic Arm that draws based on g-code input or user drawings
-                                <br><b>Skills:</b> ESP32, Custom Firmware, C++, PCB Design
+                            <h5 class="card-title">Four-bit Serial I/O Multiplier</h5>
+                            <p class="card-text"> Designed in RTL then synthesized in Genus 
+                            and pnr in Innovus <br><b>Skills:</b> Verilog, Cadence Xcelium, Genus, Innovus
                             </p>
                             <a href="Proj1.html" class="btn btn-primary">View Project</a>
                         </div>
@@ -108,11 +115,11 @@
                 <!-- Project 2 -->
                 <div class="col-md-4">
                     <div class="card project-card">
-                        <img src="images/AquariumESP32.png" class="card-img-top" alt="Project 2">
+                        <img src="images/ProjectArm/Arm.jpg" class="card-img-top" alt="Project 2">
                         <div class="card-body">
-                            <h5 class="card-title">Smart Aquarium Heater</h5>
-                            <p class="card-text">ESP32 temperature sensor that toggles a smart plug based on temperature
-                                <br><b>Skills:</b> ESP32, Custom Firmware, MQTT, HTML, Soldering
+                            <h5 class="card-title">Robotic Drawing Arm</h5>
+                            <p class="card-text">Robotic Arm that draws based on g-code input or user drawings
+                                <br><b>Skills:</b> ESP32, Custom Firmware, C++, PCB Design
                             </p>
                             <a href="Proj2.html" class="btn btn-primary">View Project</a>
                         </div>
@@ -121,11 +128,12 @@
                 <!-- Project 3 -->
                 <div class="col-md-4">
                     <div class="card project-card">
-                        <img src="images/test.png" class="card-img-top" alt="Project 3">
+                        <img src="images/AquariumESP32.png" class="card-img-top" alt="Project 3">
                         <div class="card-body">
-                            <h5 class="card-title">ESP32 Accelerometer/Gyro</h5>
-                            <p class="card-text">Battery powered ESP32 with Accelerometer and Gyro sensor, 
-                                outputs dislayed to LCD<br><b>Skills:</b> Soldering, ESP32, Arduino C++ </p>
+                            <h5 class="card-title">Smart Aquarium Heater</h5>
+                            <p class="card-text">ESP32 temperature sensor that toggles a smart plug based on temperature
+                                <br><b>Skills:</b> ESP32, Custom Firmware, MQTT, HTML, Soldering
+                            </p>
                             <a href="Proj3.html" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
@@ -162,13 +170,12 @@
                 <!-- Project 6 -->
                 <div class="col-md-4">
                     <div class="card project-card">
-                        <img src="images/103proj.png" class="card-img-top" alt="Temperature/Hygrometer Sensor">
+                        <img src="images/test.png" class="card-img-top" alt="Project 6">
                         <div class="card-body">
-                            <h5 class="card-title">ESP32 Temp/Hygrometer Sensor</h5>
-                            <p class="card-text">ESP32 collecting temperature and hygrometer data and displaying it to an LCD
-                                <br><b>Skills:</b> ESP32, Arduino C++
-                            </p>
-                            <a href="https://eecs.engineering.oregonstate.edu/project-showcase/projects/?id=ibisIk75BPRDi6yh" class="btn btn-primary" target="_blank">View Project</a>
+                            <h5 class="card-title">ESP32 Accelerometer/Gyro</h5>
+                            <p class="card-text">Battery powered ESP32 with Accelerometer and Gyro sensor, 
+                                outputs dislayed to LCD<br><b>Skills:</b> Soldering, ESP32, Arduino C++ </p>
+                            <a href="Proj6.html" class="btn btn-primary">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -299,7 +306,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Fifth Row -->
+            <!-- Sixth Row -->
             <div class="row mt-4">
                 <!-- Project 16 -->
                 <div class="col-md-4">
@@ -324,6 +331,19 @@
                                 <br><b>Skills:</b> C++, OOP, Classes, Polymorphism
                             </p>
                             <a href="Proj17.html" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 18 -->
+                <div class="col-md-4">
+                    <div class="card project-card">
+                        <img src="images/103proj.png" class="card-img-top" alt="Temperature/Hygrometer Sensor">
+                        <div class="card-body">
+                            <h5 class="card-title">ESP32 Temp/Hygrometer Sensor</h5>
+                            <p class="card-text">ESP32 collecting temperature and hygrometer data and displaying it to an LCD
+                                <br><b>Skills:</b> ESP32, Arduino C++
+                            </p>
+                            <a href="https://eecs.engineering.oregonstate.edu/project-showcase/projects/?id=ibisIk75BPRDi6yh" class="btn btn-primary" target="_blank">View Project</a>
                         </div>
                     </div>
                 </div>
